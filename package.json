@@ -1,0 +1,22 @@
+{
+  "name": "freelancer",
+  "version": "1.0.1",
+  "description": "freelancer app deployment on heroku ",
+  "main": "index.js",
+  "scripts": {
+    "build": "concurrently \"cd client && npm run build\" \"cd server && npm run build\"",
+    "install": "(cd client && npm install) && (cd server && npm install)",
+    "start": "concurrently \"cd client && PORT=3000 npm start\" \"cd server && PORT=3001 npm start\"",
+    "start:prod": "cd server && npm start:prod",
+    "heroku-postbuild": "npm run build"
+  },
+  "engines": {
+    "node": "9.9.0"
+  },
+  "author": "Krutika Mude",
+  "license": "MIT",
+  "dependencies": {
+    "concurrently": "^3.5.1",
+    "rimraf": "^2.6.2"
+  }
+}
